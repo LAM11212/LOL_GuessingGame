@@ -1,0 +1,26 @@
+.answerBox {
+    position: fixed;
+    background-color: salmon;
+    border-radius: 20px;
+    padding-top: 5px;
+    width: 250px;
+    height: 60px;
+    left: 850px;
+    bottom: 5px;
+    text-align: center;
+    z-index: 1;
+}
+
+.shadow {
+    filter: brightness(0);
+    transition: filter 5s ease 
+}
+
+@keyframes reveal-glow {
+    from { filter: brightness(0); }
+    to { filter: brightness(1); }
+}
+
+.revealed {
+    animation: reveal-glow 5s ease forwards;
+}
