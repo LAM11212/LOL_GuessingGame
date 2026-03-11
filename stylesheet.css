@@ -1,3 +1,7 @@
+body {
+    background-color: black;
+}
+
 .answerBox {
     position: fixed;
     background-color: salmon;
