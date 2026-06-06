@@ -9,6 +9,7 @@ inputElement.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault();
         storedString = inputElement.value;
+        storedString = normalizeChampName(storedString);
         if(map.get(storedString)) {
             if(map2.get(storedString)) 
                 return;
@@ -35,12 +36,16 @@ async function buildChampGrid() {
             const img = document.createElement("img");
             img.className = "shadow";
             img.src = `https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${name}.png`;
-            map.set(name, img);
+            map.set(name.toLowerCase().replace(/['\s-]/g), img);
             document.body.appendChild(img);
         }
     });
 
     document.getElementById("score-display")
+}
+
+function normalizeChampName(name) {
+    return name.toLowerCase().replace(/['\s-]/g, "");
 }
 
 buildChampGrid();
